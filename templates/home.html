@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+<style>
+
+  
+  h1{
+    color: #FF6000;
+    text-align: center;   
+    font-weight: var(--fw-semi-bold);
+  }
+ 
+</style>
+
+<h1 style="margin-top: 60px; margin-bottom: 5px;">WELCOME {{ request.user.username }} !!</h1>
+<h1 > Authentication status: {{request.user.is_authenticated}}</h1>
+<br>
+<br>
+<p style="font-size: 1em; color: #FF6000; text-align: center; opacity: 70%;max-width: 50em; margin: auto;"  >
+    Depending on the Authentication status, you will be seeing login/logout button at the top.
+    <br>
+    <br>
+    Login: &nbsp;To continue login
+    <br>
+    Logout: To sign out of the application
+</p>
+
+
+{% endblock %}
