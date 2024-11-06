@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.css" />
+        <script src="https://unpkg.com/a11y-slider@latest/dist/a11y-slider.js" defer></script>
+    {% load static %}
+
+    <style type="text/css">
+
+        body {
+            font-family:Segoe Print;
+            font-style: normal;
+            font-weight: 200;
+            font-size: 10px;
+            margin: 0px;
+            background: #f7f4f2;
+          
+
+        }
+    </style>
+
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+
+  
+        <header class= "primary-header">
+          <div class="header-container">
+              <div class="nav-wrapper">
+              <div class="logo-header">
+                  <a href="{% url 'home' %}"><img src="{% static "images/logo.png" %}"alt="logo"></a>
+              </div>
+             
+  
+              <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                  <img class="icon-hamburger" src="{% static "images/icon-hamburger.svg" %}" alt="" aria-hidden="true">
+                  <img class="icon-close" src="{% static "images/icon-close.svg" %}" alt="" aria-hidden="true">
+              </button>
+              <nav class="primary-navigation" id="primary-navigation">
+                  <ul aria-label="primary" role="list" class="nav-list" >
+                      <li><a href="{% url 'home' %}">Home</a></li>
+                      <li><a href="{% url 'register' %}">Register</a></li>
+                      {% if request.user.is_authenticated %}
+                      <li><a href="{% url 'logout' %}" >Logout</a>
+                      </li>
+                      {% else %}
+                      <li><a href="{% url 'login' %}">Login</a></li>
+                      {% endif %}
+                  </ul>
+              </nav> 
+              <a href="{% url 'register' %}">
+                <button class="button | display-sm-none display-md-inline-flex">Get Started</button>
+              </a>
+                  <!-- <button type="button" onclick='location.href = "{% url 'register' %}" '  class="button | display-sm-none display-md-inline-flex"> Get Started</button> -->
+              </div>
+          </div>
+      </header>
+       
+       
+      <main>
+        <section class="padding-block-600">
+            <div class="container">
+                <div class="even-columns">
+                    <div>
+                        <h2 class="fs-primary-heading fw-bold">INTUITIVE AUGMENTED GRAPHICAL PASSWORD AUTHENTICATION SYSTEM</h2>
+                    </div>
+                    <div><!--second continer--></div>
+                </div>
+            </div>
+            <div class="container">
+              {% if messages %}
+              {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                  {{ message }}
+              </div>
+              {% endfor %}
+              {% endif %}
+      
+              {% block content %}
+      
+              {% endblock %} 
+          </div>
+        </section>
+       
+        {% block sidebar %}
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        <section class="cta |padding-block-700 bg-accent-400 text-neutral-100">
+            <div class="container">
+              <div class="even-columns align-center">
+                <div>
+                  <p class="fs-third-heading fw-bold padding-block-700">Let's set your privacy protection levels high.</p>
+                </div>
+                <div class="self-end">
+                  <a href="{% url 'km'%}">
+                    <button class="button vertical-align-center" data-type="inverted" >Know More</button>
+                  </a>
+                  <!-- <button class="button vertical-align-center" data-type="inverted" >Get Started</button> -->
+                </div>
+              </div>
+            </div>
+          </section>
+          {% endblock %}
+          
+    </main>     
+     <footer class="bg-neutral-900 text-neutral-100 padding-block-700">
+      <div class="container">
+          <div class="even-columns">
+              <div class="logo-footer">
+                <a href="{% url 'home' %}"><img src="{% static "images/white-logo.png" %}"alt="logo"></a>
+              </div>
+              <div>
+                  <nav class="footer-nav">
+                      <ul class="flow" style="--flow-spacer: 1em;" aria-label="Footer" role="list">
+                          <li><a href="{% url 'home' %}">Home</a></li>
+                          <li><a href="{% url 'register' %}">Register</a></li>
+                          <li><a href="{% url 'km'%}">About Us</a></li>
+                          <li><a href="{% url 'login' %}">Login</a></li>
+                          <li><a href="{% url 'logout' %}">Logout</a></li>    
+                      </ul>
+                  </nav>
+              </div>
+              <div><!--input form--></div>
+          </div>
+      </div>
+  </footer>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+
+</body>
+
+</html>
+
+<style>
+  :root {
+  --clr-accent-600: hsl(12, 70%, 30%);
+  --clr-accent-400: hsl(12, 88%, 59%);
+  --clr-accent-200: hsl(12, 88%, 70%);
+  --clr-accent-100: hsl(13, 100%, 96%);
+
+  --clr-primary-400: hsl(228, 39%, 23%);
+
+  --clr-neutral-900: hsl(232, 12%, 13%);
+  --clr-neutral-200: hsla(39, 26%, 83%, 0.906);
+  --clr-neutral-100: hsl(0 0% 100%);
+
+  --ff-primary: "Work Sans", sans-serif;
+
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --fs-300: 0.8125rem;
+  --fs-400: 0.875rem;
+  --fs-500: 0.9375rem;
+  --fs-600: 1rem;
+  --fs-700: 1.875rem;
+  --fs-650: 1.78rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3.5rem;
+
+  --fs-body: var(--fs-400);
+  --fs-primary-heading: var(--fs-900);
+  --fs-secondary-heading: var(--fs-700);
+  --fs-nav: var(--fs-600);
+  --fs-button: var(--fs-300);
+
+  --size-100: .25rem;
+  --size-200: .50rem;
+  --size-300: 1rem;
+  --size-400: 1.25rem;
+  --size-500: 1.50rem;
+  --size-600: 2rem; 
+  --size-650:2.5rem;
+  --size-700: 3rem;
+  --size-800: 5rem;
+  --size-900: 4rem;
+  --size-1000:6rem;
+}
+
+ 
+@media(min-width: 50em){
+  :root{
+    --fs-body: var(--fs-500);
+    --fs-primary-heading: var(--fs-900);
+    --fs-secondary-heading: var(--fs-800);
+    --fs-nav: var(--fs-300);
+    --fs-button: var(--fs-300);
+  }
+}
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+*{
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+html,
+body{
+    height: 100%;
+}
+
+/* Set core body defaults */
+body {
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+p:not([class]) {
+  opacity: 0.7;
+  max-width: 32ch;
+}
+
+p[data-width="wide"] {
+  max-width: 42ch;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.text-primary-400 {
+  color: var(--clr-primary-400);
+}
+.text-accent-400 {
+  color: var(--clr-accent-400);
+}
+.text-accent-100 {
+  color: var(--clr-accent-100);
+}
+.text-neutral-100 {
+  color: var(--clr-neutral-100);
+}
+.text-neutral-900 {
+  color: var(--clr-neutral-900);
+}
+
+.bg-primary-400 {
+  background-color: var(--clr-primary-400);
+}
+.bg-accent-400 {
+  background-color: var(--clr-accent-400);
+}
+.bg-accent-100 {
+  background-color: var(--clr-accent-100);
+}
+.bg-neutral-100 {
+  background-color: var(--clr-neutral-100);
+}
+.bg-neutral-900 {
+  background-color: var(--clr-neutral-900);
+}
+
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+.fw-semi-bold {
+  font-weight: var(--fw-semi-bold);
+}
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+.title-name{
+  font-size: var(--fs-300);
+}
+.fs-primary-heading {
+  font-size: var(--fs-650);
+  line-height: 1.1;
+}
+.fs-secondary-heading {
+  font-size: var(--fs-secondary-heading);
+}
+
+.fs-third-heading{
+  font-size: var(--fs-900);
+  line-height: 1.1;
+}
+
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-600 {
+  font-size: var(--fs-600);
+}
+
+.header-container{
+  --max-width:1110px;
+  --padding: 7rem;
+
+  width: min(var(--max-width),100% - var(--padding));
+  margin-inline: auto;
+  
+}
+
+.container{
+  --max-width: 1110px ;
+  --padding: 1rem;
+
+  width: min(var(--max-width),100% - var(--padding));
+  margin-inline: auto;
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+.align-center{
+  align-items: center ;
+}
+
+.self-end{
+  justify-self: end;
+}
+
+.logo-header{
+  inline-size: 5rem;
+  justify-content: flex-start 
+}
+
+.logo-footer{
+  inline-size: 5rem;
+}
+
+
+.button{
+  border: 0;
+  display: inline-flex;
+  border-radius: 100vmax;
+  padding: 1.25em 2.5em;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-button);
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-accent-400);
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 1.105em 1em -1em  var(--clr-accent-600);
+  line-height: 1;
+}
+
+.button[data-type="inverted"]{
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-accent-400);
+
+}
+.button[data-type="inverted"]:hover{
+  background-color: var(--clr-neutral-100);
+  color: var(--clr-accent-200);
+ 
+}
+
+
+.button:hover,
+.button:focus-visible{
+  color: #f7f4f2;
+  background-color: var(--clr-accent-200);
+}
+
+.primary-header{
+  margin-top: var(--size-600);
+}
+
+.nav-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between ;
+}
+.nav-toggle{
+  display: none;
+}
+
+
+.nav-list {
+  display: flex;
+  font-size: var(--fs-600);
+  gap: clamp(var(--size-400), 5vw, var(--size-700));
+  font-weight: var(--fw-semi-bold);
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--clr-primary-400);
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  color: var(--clr-accent-400);
+}
+@media (max-width: 50em) {
+  .primary-navigation {
+    display: none;
+
+    position: absolute;
+    padding: var(--size-600);
+    inset: 5rem var(--size-500) auto;
+    max-width: 20rem;
+    margin-left: auto;
+    background: var(--clr-neutral-100);
+    border-radius: var(--size-100);
+    box-shadow: 0 0 0.75em rgb(0, 0, 0, 0.05);
+  }
+  
+  .primary-header[data-overlay]::before {
+    content: "";
+    position: fixed ;
+    inset: 0;
+    background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.6));
+  }
+
+  .nav-list {
+    display: grid;
+    gap: var(--size-500);
+    text-align: center;
+    font-weight: var(--fw-bold);
+  }
+
+  .primary-navigation[data-visible]{
+    display: block;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: absolute;
+    top: var(--size-600);
+    right: var(--size-400);
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 0.5em;
+  }
+  .nav-toggle .icon-close{
+    display: none;
+  }
+}
+
+.cta{
+  margin-top: 250px;
+}
+
+/*slider*/
+.slider {
+  display: flex;
+  gap: var(--size-400);
+  list-style: none;
+}
+
+.a11y-slider-container {
+  margin-block: var(--size-700);
+  margin-inline: var(--size-400);
+}
+
+.slider > * {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+.text-center p {
+  margin-inline: auto;
+}
+
+@media (min-width: 30em) {
+  .slider {
+    scroll-padding-inline: 25px;
+  }
+
+  .a11y-slider-container {
+    margin-inline: 0;
+  }
+  .slider > * {
+    width: 50%;
+  }
+}
+
+@media (min-width: 50em) {
+  .slider > * {
+    width: 35%;
+  }
+}
+
+.slider-content {
+  border-radius: var(--size-100);
+  padding: var(--size-700) var(--size-600) var(--size-600);
+  background: var(--clr-neutral-200);
+}
+
+.slider img {
+  width: var(--size-800);
+  position: relative;
+  top: calc(var(--size-800) / 2);
+  margin-inline: auto;
+}
+.a11y-slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-block: var(--size-500);
+  gap: var(--size-300);
+}
+.a11y-slider-dots li {
+  display: block;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+}
+
+.a11y-slider-dots li button {
+  display: block;
+  font-size: 0;
+  text-indent: -9999px;
+  background: transparent;
+  border: 1px solid var(--clr-accent-400) !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.a11y-slider-dots li button.active {
+  background: var(--clr-accent-400);
+}
+/*footer*/
+.footer-nav{
+  columns: 2; 
+  gap: clamp(var(--size-200), 30vw, var(--size-900));
+}
+.footer-nav a{
+  color: var(--clr-neutral-100);
+  text-decoration: none;  
+}
+
+.vertical-align-center {
+  align-items: center;
+}
+
+.footer-nav a:is(:hover,:focus){
+  color: var(--clr-accent-200);
+}
+
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em);
+}
+
+@media (min-width: 50em){
+  .even-columns{
+    grid-auto-flow: column;
+  }
+  
+}
+/*styling*/
+body{
+  font-size: var(--ff-body);
+  font-family: var(--ff-body);
+  color: var(--clr-primary-400);
+
+}
+p{
+  max-width: 18em;
+}
+
+h2{
+  font-family: var(--ff-primary);
+}
+
+h3{
+  font-size: var(--size-400);
+}
+.padding-block-1000{
+  padding-block: var(--size-1000);
+}
+.padding-block-900{
+  padding-block: var(--size-900);
+}
+
+.padding-block-700 {
+  padding-block: var(--size-700);
+}
+
+.padding-block-650{
+  padding-block: var(--size-650);
+}
+
+.padding-block-600{
+  padding-block: var(--size-600);
+}
+
+.padding-block-400{
+  padding-block: var(--size-400);
+}
+
+.padding-block-100{
+  padding-block: var(--size-100);
+}
+
+.display-sm-none {
+  display: none;
+}
+
+a {
+    color: #6127eb;
+    text-decoration: none;
+    
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+@media (min-width: 50em) {
+  .display-md-inline-flex {
+    display: inline-flex;
+  }
+}
+</style>
+
+<script>
+const primaryHeader = document.querySelector(".primary-header");
+const navToggle = document.querySelector(".nav-toggle");
+const primaryNav = document.querySelector(".primary-navigation");
+
+navToggle.addEventListener("click",() => {
+    primaryNav.toggleAttribute("data-visible");
+    primaryHeader.toggleAttribute("data-overlay");
+}); 
+
+
+const slider = new A11YSlider(document.querySelector(".slider"), {
+  adaptiveHeight: false,
+  dots: true,
+  centerMode: true,
+  arrows: false,
+  responsive: {
+    480: {
+      dots: false, // dots enabled 1280px and up
+    },
+  },
+});
+</script>
