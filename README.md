@@ -1,11 +1,11 @@
 # Graphical Password Authentincation
 
-## Introduction
+## Introduction 🙏
 A Graphical Password Authentication system is an authentication system that uses some combination of graphical images replacing the regular passwords. Graphical passwords may offer better security than text-based passwords because most of the people use regular, popular passwords everywhere and are prone to social engineering attacks. So graphical passwords can put stop to many attacks of this kind.
 
 <br>
 
-## Resistance to Popular Attacks
+## Resistance to Popular Attacks 🦾
 ### Bruteforce
 After reaching max tries, the user will be notified via message through email. And the further authentication through the generic URL/website is disabled for that user account, instead, they have to use the link that will be sent by the company in the notification email. This also lets the legitimate user know about the adversary. 
 
@@ -23,7 +23,7 @@ Since the adversary is made to believe that the password is a set of images, it�
 
 <br>
 
-## Screenshots
+## Screenshots 🖼️
 Welcome Page
 ![](screenshots/gpwd1.png)
 <br> <br>
@@ -50,5 +50,5 @@ Mail received with password reset link
 ![](screenshots/gpwd11.png)
 <br>
 
-#### Thank you
+#### Thank you 💙
 
