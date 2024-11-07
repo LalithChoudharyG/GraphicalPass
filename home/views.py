@@ -88,7 +88,7 @@ def sendPasswordResetLinkToUser(username):
 
     requests.post(
         "https://api.mailgun.net/v3/sandbox4e20274947e143afb8f4d524e3272133.mailgun.org/messages",
-        auth=("api", "e03fbe15a98e77b62a0c49247548e205-d51642fa-ee4949ea"),
+        auth=("api", "api key"),
         data={
             "from": "<postmaster@sandbox4e20274947e143afb8f4d524e3272133.mailgun.org>",
             "to": email,
