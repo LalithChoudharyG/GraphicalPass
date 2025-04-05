@@ -50,5 +50,5 @@ Mail received with password reset link
 ![](screenshots/gpwd11.png)
 <br>
 
-#### Thank you !!
+### Thank you !!
 
